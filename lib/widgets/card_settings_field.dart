@@ -77,11 +77,11 @@ class CardSettingsField extends StatelessWidget {
       decoratedContent = InputDecorator(decoration: decoration, child: content);
     }
 
-    return Expanded(child: contentOnNewLine ? Text('') : decoratedContent);
+    return Expanded(child: contentOnNewLine == true ? Text('') : decoratedContent);
   }
 
   Widget _buildRowContent() {
-    return (contentOnNewLine)
+    return (contentOnNewLine == true)
         ? Container(
             padding: EdgeInsets.only(top: 10.0),
             child: content,
@@ -91,7 +91,7 @@ class CardSettingsField extends StatelessWidget {
 
   Widget _buildLabelRow(BuildContext context) {
     return Container(
-      width: (contentOnNewLine) ? null : labelWidth,
+      width: (contentOnNewLine == true) ? null : labelWidth,
       padding:
           EdgeInsets.only(right: CardSettings.of(context).labelPadding ?? 6.0),
       child: Row(
